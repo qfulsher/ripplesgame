@@ -3,14 +3,12 @@ import Konva from 'konva';
 document.addEventListener("DOMContentLoaded", () => {
     const stage = new Konva.Stage({
     container: "container",
-    width: document.innerWidth,
-    height: document.innerHeight,
+    width: window.innerWidth,
+    height: window.innerHeight,
   });
 
-  const layer = new Konva.Layer({
-    listening: false, // Disable event listening on the layer
-  });
-
+  const layer = new Konva.Layer();
+  layer.listening(false); // Disable event listening on the layer for performance
   stage.add(layer);
 
   // Function to generate a random color
@@ -63,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Add an event listener to resize the canvas when the viewport size changes
   document.addEventListener('resize', () => {
-    stage.width(document.innerWidth);
-    stage.height(document.innerHeight);
+    stage.width(window.innerWidth);
+    stage.height(window.innerHeight);
   });
 });

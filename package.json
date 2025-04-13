@@ -1,12 +1,12 @@
 {
-  "name": "kyliegame",
+  "name": "ripples",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "rspack dev",
     "build": "rspack build"
   },
-  "author": "",
+  "author": "Quentin Fulsher",
   "license": "ISC",
   "description": "",
   "dependencies": {
