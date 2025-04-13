@@ -6,7 +6,7 @@ export default defineConfig({
       template: "./index.template.html",
       filename: "index.html",
       inject: "body",
-      minify: isProduction,
+      minify: true,
       scriptLoading: "blocking",
   })],
 
