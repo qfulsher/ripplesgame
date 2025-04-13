@@ -1,15 +1,16 @@
 import Konva from 'konva';
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Import Konva library
     const stage = new Konva.Stage({
-    container: "container", // ID of the container element
-    width: window.innerWidth,
-    height: window.innerHeight,
+    container: "container",
+    width: document.innerWidth,
+    height: document.innerHeight,
   });
 
-  const layer = new Konva.Layer();
-  layer.listening(false); // Disable event listening on the layer
+  const layer = new Konva.Layer({
+    listening: false, // Disable event listening on the layer
+  });
+
   stage.add(layer);
 
   // Function to generate a random color
@@ -36,9 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
     layer.add(ripple);
 
     ripple.to({
-      radius: 120, // Increased radius for larger ripples
+      radius: 120,
       opacity: 0,
-      duration: 1.2, // Slightly longer duration for better effect
+      duration: 1.2,
       onFinish: () => ripple.destroy(),
     });
   }
@@ -50,5 +51,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const y = Math.random() * stage.height();
       createRipple(x, y);
     }
+  });
+
+  // Listen for touchstart events
+  document.addEventListener("touchstart", (event) => {
+    const touch = event.touches[0];
+    const x = touch.clientX;
+    const y = touch.clientY;
+    createRipple(x, y);
+  });
+
+  // Add an event listener to resize the canvas when the viewport size changes
+  document.addEventListener('resize', () => {
+    stage.width(document.innerWidth);
+    stage.height(document.innerHeight);
   });
 });
