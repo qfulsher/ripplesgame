@@ -9,6 +9,6 @@ This is a simple game designed to be "played" by a literal baby.
 
 ## Running
 
-1.  Run `npm start` to start the development server.
-2.  Open `http://localhost:3000` in your browser.
+1.  Run `npm run dev` to start the development server.
+2.  Open `http://localhost:8080` in your browser.
 
